@@ -4,6 +4,7 @@
 #include<fstream>
 #include<QString>
 #include<QDebug>
+#include<QStandardPaths>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -53,9 +54,11 @@ void MainWindow::on_pushButton_3_pressed()
         ui->debug_label->setText("Error ; Please Select icon for dekstop entry!");
         return;
     }
-    QString filePath{"~/.local/share/applications/"};
+    QString path= *QStandardPaths::standardLocations(QStandardPaths::HomeLocation).begin();
+    path.append("/.local/share/applications/");
     const QString app_name{ui->app_name->text()};
-    filePath.append(app_name);
+    path.append(app_name);
+    path.append(".desktop");
     QString to_write{R"(
 [Desktop Entry]
 Version=1.0
@@ -70,16 +73,16 @@ Keywords=game;engine;development;IDE;
 )"};
 
     std::fstream file{};
-    file.open(filePath.toStdString().c_str(),std::ios::out);
+    file.open(path.toStdString().c_str(),std::ios::out);
     if(!file.is_open())
     {
-        qDebug()<<"Failed to create file "<<filePath<<"\n";
+        qDebug()<<"Failed to create file "<<path<<"\n";
         return;
     }
     to_write.replace("applicationPath",ui->app->text());
     to_write.replace("iconPath",ui->icon->text());
     to_write.replace("appName",app_name);
-    qDebug()<<filePath<<"\n";
+    qDebug()<<path<<"\n";
     qDebug()<<to_write<<"\n";
     file<<to_write.toStdString();
     file.close();
