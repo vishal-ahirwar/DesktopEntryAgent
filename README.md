@@ -1,4 +1,6 @@
 Styling is in Progress ...
-![image](https://github.com/user-attachments/assets/d3c157b2-f810-412d-9877-6a80ba45d918)
+![{AC01B539-D8C2-4840-BBA5-3AC61EA2A9A9}](https://github.com/user-attachments/assets/8331cb5d-64a8-44f4-b347-0cc3b05c4460)
 
-![Screenshot from 2024-07-15 09-09-30](https://github.com/user-attachments/assets/fd65f4b4-bf62-463b-8886-adeb3e87b367)
+
+![{3F51283F-8653-4152-A2F2-97F463D638DF}](https://github.com/user-attachments/assets/860237cc-9311-4f46-8c3c-e91cf6cd98d6)
+
